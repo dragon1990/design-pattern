@@ -1,6 +1,5 @@
 package com.dragon.learn.templatemethod.hook;
 
-import java.util.Arrays;
 
 /**
  * Created by dragon on 17-7-9.
