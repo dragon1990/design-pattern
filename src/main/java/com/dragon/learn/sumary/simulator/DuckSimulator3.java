@@ -1,13 +1,13 @@
-package com.dragon.learn.sumary;
+package com.dragon.learn.sumary.simulator;
 
-import com.dragon.learn.strategy.impl.Quack;
+import com.dragon.learn.sumary.*;
 
 /**
- * Created by dragon on 17-7-11.
+ * Created by dragon on 17-7-12.
  */
-public class DuckSimulator2 {
+public class DuckSimulator3 {
     public static void main(String[] args) {
-        DuckSimulator2 duckSimulator = new DuckSimulator2();
+        DuckSimulator3 duckSimulator = new DuckSimulator3();
         AbstractDuckFactory duckFactory = new CountingDuckFactory();
         duckSimulator.simulate(duckFactory);
     }
@@ -17,14 +17,17 @@ public class DuckSimulator2 {
         Quackable redheadDuck = duckFactory.createRedheadDuck();
         Quackable duckCall = duckFactory.createDuckCall();
         Quackable rubberDuck = duckFactory.createRubberDuck();
-        Quackable gooseDuck = duckFactory.createGooseDuck();
-        System.out.println("Duck simulator: With abstract factory");
+        Quackable gooseDuck = new GooseAdaptor(new Goose());
+
+        System.out.println("Duck Simulator: With Abstract Factory");
+
         simulate(mallardDuck);
         simulate(redheadDuck);
         simulate(duckCall);
         simulate(rubberDuck);
         simulate(gooseDuck);
-        System.out.println("The ducks quacked "+QuackCounter.getNumberOFQuacks());
+
+        System.out.println("The ducks quacked "+QuackCounter.getNumberOFQuacks()+" times.");
     }
 
     private void simulate(Quackable duck) {

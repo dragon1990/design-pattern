@@ -24,8 +24,4 @@ public class DuckFactory extends AbstractDuckFactory {
         return new RubberDuck();
     }
 
-    @Override
-    public Quackable createGooseDuck() {
-        return new GooseAdaptor(new Goose());
-    }
 }

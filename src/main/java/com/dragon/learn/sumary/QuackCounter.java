@@ -11,6 +11,7 @@ public class QuackCounter implements Quackable {
 
     public QuackCounter(Quackable duck){
         this.duck = duck;
+        observable = new Observable(this);
     }
 
     @Override
@@ -21,6 +22,18 @@ public class QuackCounter implements Quackable {
 
     public static int getNumberOFQuacks() {
         return numberOFQuacks;
+    }
+
+    Observable observable;
+
+    @Override
+    public void registerObserver(Observer observer) {
+        observable.registerObserver(observer);
+    }
+
+    @Override
+    public void notifyObservers() {
+        observable.notifyObservers();
     }
 
 
